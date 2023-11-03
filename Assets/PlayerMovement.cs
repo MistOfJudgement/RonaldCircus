@@ -20,17 +20,13 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetAxisRaw("vertical") > 0)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, 5);
-        }
-        else if (Input.GetAxisRaw("vertical") < 0)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, -5);
-        }
-        else
-        {
-            rb.velocity = new Vector2(rb.velocity.x, 0);
-        }
+        Move();
     }
+
+    void Move()
+    {
+        Vector2 movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        rb.velocity = movement.normalized * speed;
+    }
+
 }
