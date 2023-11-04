@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
 
     public bool isInvulnerable = false;
     public GameObject bulletPrefab;
+    private Camera mainCamera;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +33,7 @@ public class PlayerController : MonoBehaviour
         playerMovement = GetComponent<PlayerMovement>();
         playerHealth = GetComponent<PlayerHealth>();
         rb = GetComponent<Rigidbody2D>();
+        mainCamera = Camera.main;
     }
 
     // Update is called once per frame
@@ -54,10 +56,20 @@ public class PlayerController : MonoBehaviour
         {
             FireBullet();
         }
+
+        //Stuff for making the player aim at the cursor
+        Vector3 mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+        mousePosition.z = 0; // Ensure the z-component is at the same level as the player (0 in 2D games).
+
+        // Calculate the direction to aim
+        Vector3 aimDirection = (mousePosition - transform.position).normalized;
+
+        // Rotate the player to aim at the cursor
+        transform.up = aimDirection;
     }
     private void FireBullet()
     {
-        GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+        GameObject bullet = Instantiate(bulletPrefab, transform.position, this.transform.rotation);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
