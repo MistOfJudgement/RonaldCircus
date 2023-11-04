@@ -17,6 +17,9 @@ public class PlayerController : MonoBehaviour
     public bool isInvulnerable = false;
     public GameObject bulletPrefab;
     private Camera mainCamera;
+
+    public Transform gunHolder;
+    public Transform gunSprite;
     // Start is called before the first frame update
     void Start()
     {
@@ -65,13 +68,14 @@ public class PlayerController : MonoBehaviour
         Vector3 aimDirection = (mousePosition - transform.position).normalized;
 
         // Rotate the player to aim at the cursor
-        transform.up = aimDirection;
+        gunHolder.up = aimDirection;   
     }
     private void FireBullet()
     {
-        GameObject bullet = Instantiate(bulletPrefab, transform.position, this.transform.rotation);
+        //Quaternion quaternion = Quaternion.EulerRotation(aimStorage.x, aimStorage.y, 0);
+        GameObject bullet = Instantiate(bulletPrefab, gunSprite.position, gunHolder.rotation);
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (rb == null)
         {

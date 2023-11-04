@@ -18,7 +18,7 @@ public class Bullet : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            collision.gameObject.GetComponent<LionBehavior>().TakeDamage(damage);
+            collision?.gameObject.GetComponent<LionBehavior>()?.TakeDamage(damage);
             Destroy(gameObject);
         }
         if (collision.gameObject.tag == "Wall")
