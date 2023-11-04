@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,7 @@ public class EnemyController : MonoBehaviour
 {
     public EnemyHealth health;
     public IEnemyBehavior behavior;
+
     // Start is called before the first frame update
     void Start()
     {
