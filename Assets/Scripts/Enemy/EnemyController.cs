@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 [RequireComponent(typeof(EnemyHealth))]
 [RequireComponent(typeof(IEnemyBehavior))]
-public class EnemyController : MonoBehaviour
+public class EnemyController : MonoBehaviour, IHittable
 {
     public EnemyHealth health;
     public IEnemyBehavior behavior;
@@ -20,5 +20,10 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void OnHit()
+    {
+        //noop
     }
 }

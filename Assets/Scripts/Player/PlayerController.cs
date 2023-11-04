@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IHittable
 {
     public static PlayerController instance;
-    private PlayerMovement playerMovement;
-    private PlayerHealth playerHealth;
+    public PlayerMovement playerMovement;
+    public PlayerHealth playerHealth;
 
     private Rigidbody2D rb;
 
@@ -70,33 +70,35 @@ public class PlayerController : MonoBehaviour
         // Rotate the player to aim at the cursor
         gunHolder.up = aimDirection;   
     }
+
+    
     private void FireBullet()
     {
         //Quaternion quaternion = Quaternion.EulerRotation(aimStorage.x, aimStorage.y, 0);
         GameObject bullet = Instantiate(bulletPrefab, gunSprite.position, gunHolder.rotation);
     }
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (rb == null)
-        {
-            return;
-        }
+    //private void OnTriggerStay2D(Collider2D collision)
+    //{
+    //    if (rb == null)
+    //    {
+    //        return;
+    //    }
         
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            HandleHit(collision.gameObject);
-        }
-    }
-    public void HandleHit(GameObject enemy) {
-        if(isInvulnerable)
-        {
-            return;
-        }
-        playerHealth.CurrentHealth -= 5;
-        //invulnerabilityTimer = InvulnerabilityTime;
-        //StartCoroutine(InvulnerabilityFlash());
-        GrantInvulerability(InvulnerabilityTime);
-    }
+    //    if (collision.gameObject.CompareTag("Enemy"))
+    //    {
+    //        HandleHit(collision.gameObject);
+    //    }
+    //}
+    //public void HandleHit(GameObject enemy) {
+    //    if(isInvulnerable)
+    //    {
+    //        return;
+    //    }
+    //    playerHealth.CurrentHealth -= 5;
+    //    //invulnerabilityTimer = InvulnerabilityTime;
+    //    //StartCoroutine(InvulnerabilityFlash());
+    //    GrantInvulerability(InvulnerabilityTime);
+    //}
     public void GrantInvulerability(float time)
     {
         invulnerabilityTimer = time;
@@ -115,5 +117,19 @@ public class PlayerController : MonoBehaviour
         }
         GetComponent<SpriteRenderer>().color = Color.white;
         yield return null;
+    }
+    public void TakeDamage(int damage)
+    {
+        if (isInvulnerable)
+        {
+            return;
+        }
+        playerHealth.CurrentHealth -= damage;
+        GrantInvulerability(InvulnerabilityTime);
+    }
+    
+    public void OnHit()
+    {
+
     }
 }

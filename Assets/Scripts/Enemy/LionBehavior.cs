@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LionBehavior : MonoBehaviour, IEnemyBehavior
+public class LionBehavior : MonoBehaviour, IEnemyBehavior, IHitter<PlayerController>
 {
     private GameObject player;
     private Rigidbody2D rb;
@@ -11,7 +11,7 @@ public class LionBehavior : MonoBehaviour, IEnemyBehavior
     public float speed = 3;
     public float acceleration = 0.3f;
     public float dashRadius = 2f;
-
+    public int damage = 5;
     // Start is called before the first frame update
     void Start()
     {
@@ -81,5 +81,18 @@ public class LionBehavior : MonoBehaviour, IEnemyBehavior
         }
         currentState = State.Approaching;
         StartCoroutine(Approach());
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        PlayerController player = collision.GetComponent<PlayerController>();
+        if(player != null)
+        {
+            DoHit(player);
+        }
+    }
+    public void DoHit(PlayerController player)
+    {
+        player.playerHealth.CurrentHealth -= damage;
+        player.OnHit();
     }
 }

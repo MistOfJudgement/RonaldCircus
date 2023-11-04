@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletEnemy : MonoBehaviour
+public class BulletEnemy : MonoBehaviour, IHitter<PlayerController>
 {
     public float speed = 20f;
     public float damage = 10f;
@@ -16,11 +16,25 @@ public class BulletEnemy : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        PlayerController player = collision.GetComponent<PlayerController>();
+        if (player != null)
         {
-            collision.gameObject.GetComponent<PlayerController>().HandleHit(gameObject);
+            DoHit(player);
+        }
+
+        if(collision.gameObject.tag == "Wall")
+        {
             Destroy(gameObject);
         }
 
     }
+
+    public void DoHit(PlayerController hittable)
+    {
+        hittable.TakeDamage((int)(damage));
+        hittable.OnHit();
+        Destroy(gameObject);
+
+    }
+
 }
