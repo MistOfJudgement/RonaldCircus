@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LionBehavior : MonoBehaviour
+public class LionBehavior : MonoBehaviour, IEnemyBehavior
 {
     private GameObject player;
     private Rigidbody2D rb;

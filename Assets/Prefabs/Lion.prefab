@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 4371357172914995953}
   - component: {fileID: 5451546193271728188}
   - component: {fileID: 8912165653374986559}
+  - component: {fileID: 4662220870002814407}
+  - component: {fileID: 7171865631212197189}
   m_Layer: 0
   m_Name: Lion
   m_TagString: Enemy
@@ -164,3 +166,30 @@ MonoBehaviour:
   speed: 5.51
   acceleration: 9.78
   dashRadius: 2
+  health: 100
+--- !u!114 &4662220870002814407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5284534075993904114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab02ed0626e15814da4d5d066897cf28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: {fileID: 7171865631212197189}
+--- !u!114 &7171865631212197189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5284534075993904114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26be1861a19e04d4f84184977d26e63b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100

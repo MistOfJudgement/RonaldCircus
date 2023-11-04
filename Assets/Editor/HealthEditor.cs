@@ -7,17 +7,17 @@ using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
-[CustomEditor(typeof(PlayerHealth))]
-public class PlayerHealthEditor : Editor
+[CustomEditor(typeof(Health), true)]
+public class HealthEditor : Editor
 {
     public override void OnInspectorGUI()
     {
         base.OnInspectorGUI();
         EditorGUI.BeginChangeCheck();
-        int val = EditorGUILayout.IntField("Current Health", ((PlayerHealth)target).CurrentHealth);
+        int val = EditorGUILayout.IntField("Current Health", ((Health)target).CurrentHealth);
         if (EditorGUI.EndChangeCheck())
         {
-            ((PlayerHealth)target).CurrentHealth = val;
+            ((Health)target).CurrentHealth = val;
         }
 
     }

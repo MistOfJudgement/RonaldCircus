@@ -76,7 +76,7 @@ public class PlayerController : MonoBehaviour
         {
             return;
         }
-        playerHealth.TakeDamage(5);
+        playerHealth.CurrentHealth -= 5;
         //invulnerabilityTimer = InvulnerabilityTime;
         //StartCoroutine(InvulnerabilityFlash());
         GrantInvulerability(InvulnerabilityTime);
@@ -84,17 +84,20 @@ public class PlayerController : MonoBehaviour
     public void GrantInvulerability(float time)
     {
         invulnerabilityTimer = time;
+        isInvulnerable = true;
         StartCoroutine(InvulnerabilityFlash());
     }
     IEnumerator InvulnerabilityFlash()
     {
         while (invulnerabilityTimer > 0)
         {
-            GetComponent<SpriteRenderer>().enabled = false;
-            yield return new WaitForSeconds(0.1f);
-            GetComponent<SpriteRenderer>().enabled = true;
+            //GetComponent<SpriteRenderer>().enabled = false;
+            //yield return new WaitForSeconds(0.1f);
+            //GetComponent<SpriteRenderer>().enabled = true;
+            GetComponent<SpriteRenderer>().color = Color.red;
             yield return new WaitForSeconds(0.1f);
         }
+        GetComponent<SpriteRenderer>().color = Color.white;
         yield return null;
     }
 }
