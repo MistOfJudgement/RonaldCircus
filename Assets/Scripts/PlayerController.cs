@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
 
     public float InvulnerabilityTime = 1f;
     private float invulnerabilityTimer = 0f;
+
+    public bool isInvulnerable = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +38,10 @@ public class PlayerController : MonoBehaviour
         if(invulnerabilityTimer > 0)
         {
             invulnerabilityTimer -= Time.deltaTime;
+            if(invulnerabilityTimer <= 0)
+            {
+                isInvulnerable = false;
+            }
         }
     }
 
@@ -52,16 +58,20 @@ public class PlayerController : MonoBehaviour
         }
     }
     private void HandleHit(GameObject enemy) {
-        if(invulnerabilityTimer > 0)
+        if(isInvulnerable)
         {
             return;
         }
         playerHealth.TakeDamage(5);
-        invulnerabilityTimer = InvulnerabilityTime;
-        StartCoroutine(InvulnerabilityFlash());
-
+        //invulnerabilityTimer = InvulnerabilityTime;
+        //StartCoroutine(InvulnerabilityFlash());
+        GrantInvulerability(InvulnerabilityTime);
     }
-
+    public void GrantInvulerability(float time)
+    {
+        invulnerabilityTimer = time;
+        StartCoroutine(InvulnerabilityFlash());
+    }
     IEnumerator InvulnerabilityFlash()
     {
         while (invulnerabilityTimer > 0)
@@ -71,5 +81,6 @@ public class PlayerController : MonoBehaviour
             GetComponent<SpriteRenderer>().enabled = true;
             yield return new WaitForSeconds(0.1f);
         }
+        yield return null;
     }
 }
