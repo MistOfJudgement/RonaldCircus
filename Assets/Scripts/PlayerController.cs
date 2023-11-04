@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -14,6 +15,7 @@ public class PlayerController : MonoBehaviour
     private float invulnerabilityTimer = 0f;
 
     public bool isInvulnerable = false;
+    public GameObject bulletPrefab;
     // Start is called before the first frame update
     void Start()
     {
@@ -43,8 +45,20 @@ public class PlayerController : MonoBehaviour
                 isInvulnerable = false;
             }
         }
-    }
 
+        if (playerMovement.IsDodgeRolling)
+        {
+            return;
+        }
+        if (Input.GetButtonDown("Fire1"))
+        {
+            FireBullet();
+        }
+    }
+    private void FireBullet()
+    {
+        GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (rb == null)
