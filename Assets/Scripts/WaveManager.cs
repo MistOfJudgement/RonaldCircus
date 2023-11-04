@@ -35,20 +35,25 @@ public class WaveManager : MonoBehaviour
             Debug.Log("No waves to start");
             return;
         }
-        currentWave = Instantiate(waves[currentWaveNumber]);
+        Debug.Log("Starting wave " + currentWaveNumber);
+        currentWave = Instantiate(waves[currentWaveNumber++]);
         SpawnWave();
     }
 
     private void SpawnWave()
     {
+        Debug.Log("Spawning wave " + currentWaveNumber);
         currentWave.beforeWave.Invoke();
 
         foreach (Enemy enemy in currentWave.enemies)
         {
+            Debug.Log("Spawning enemy " + enemy.enemyPrefab.name);
             EnemyController e = Instantiate(enemy.enemyPrefab, enemy.spawnPosition, Quaternion.identity).GetComponent<EnemyController>();
             enemiesLeft.Add(e);
             e.health.OnDeath += ( () => OnEnemyDeath(e));
+            e.health.OnDeath += ( () => Log("Enemy died: rip " + e.name));
         }
+        Debug.Log("Enemies left: " + enemiesLeft.Count);
     }
 
     private void OnEnemyDeath(EnemyController enemy)

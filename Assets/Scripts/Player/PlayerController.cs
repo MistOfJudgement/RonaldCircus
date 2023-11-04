@@ -87,7 +87,7 @@ public class PlayerController : MonoBehaviour
             HandleHit(collision.gameObject);
         }
     }
-    private void HandleHit(GameObject enemy) {
+    public void HandleHit(GameObject enemy) {
         if(isInvulnerable)
         {
             return;

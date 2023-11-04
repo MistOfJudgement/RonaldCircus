@@ -167,7 +167,6 @@ MonoBehaviour:
   speed: 5.51
   acceleration: 9.78
   dashRadius: 2
-  health: 100
 --- !u!114 &4662220870002814407
 MonoBehaviour:
   m_ObjectHideFlags: 0

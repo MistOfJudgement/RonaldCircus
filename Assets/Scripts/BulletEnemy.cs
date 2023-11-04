@@ -18,7 +18,7 @@ public class BulletEnemy : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            //collision.gameObject.GetComponent<PlayerController>().HandleHit(this);
+            collision.gameObject.GetComponent<PlayerController>().HandleHit(gameObject);
             Destroy(gameObject);
         }
 
