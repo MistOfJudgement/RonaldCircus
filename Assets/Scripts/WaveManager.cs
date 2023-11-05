@@ -7,7 +7,7 @@ public class WaveManager : MonoBehaviour
 
     private Wave currentWave;
     public Wave[] waves;
-    public int currentWaveNumber = 0;
+    //public int currentWaveNumber = 0;
     private HashSet<EnemyController> enemiesLeft;
     // Start is called before the first frame update
     void Start()
@@ -30,20 +30,12 @@ public class WaveManager : MonoBehaviour
             return;
         }
 
-        if(currentWaveNumber >= waves.Length)
-        {
-            Debug.Log("No waves to start");
-            Debug.Log(waves.Length);
-            return;
-        }
-        Debug.Log("Starting wave " + currentWaveNumber);
-        currentWave = Instantiate(waves[currentWaveNumber]);
+        currentWave = Instantiate(waves[Random.Range(0, waves.Length)]);
         SpawnWave();
     }
 
     private void SpawnWave()
     {
-        Debug.Log("Spawning wave " + currentWaveNumber);
         currentWave.onWaveEnd.AddListener( () => { Statistics.WavesSurvived++; });
         currentWave.beforeWave.Invoke();
 
@@ -73,7 +65,6 @@ public class WaveManager : MonoBehaviour
     {
         if(currentWave != null)
         {
-            currentWaveNumber++;
             currentWave.onWaveEnd.Invoke();
             currentWave = null;
             StartCoroutine(PauseBeforeWave());

@@ -13,7 +13,7 @@ public class BubbleBehavior : MonoBehaviour, IEnemyBehavior, IHitter<PlayerContr
 
     private void Start()
     {
-        storedEnemy = transform.childCount > 0 ? transform.GetChild(0).GetComponent<EnemyController>() : null;
+        storedEnemy = transform.childCount > 0 ? transform.GetChild(transform.childCount-1).GetComponent<EnemyController>() : null;
         storedEnemy?.Disable();
         storedEnemy?.transform.localPosition.Set(0, 0, 0);
         player = GameObject.FindGameObjectWithTag("Player");
