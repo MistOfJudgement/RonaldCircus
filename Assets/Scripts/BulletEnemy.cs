@@ -6,11 +6,18 @@ public class BulletEnemy : MonoBehaviour, IHitter<PlayerController>
 {
     public float speed = 20f;
     public float damage = 10f;
+    public float delay = 0f;
     public Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        Invoke("LUANCH", delay);
+        
+    }
+
+    void LUANCH()
+    {
         rb.velocity = transform.up * speed;
     }
 

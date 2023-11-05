@@ -181,6 +181,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 20
   damage: 10
+  delay: 0
   rb: {fileID: 0}
 --- !u!61 &2091430107927715575
 BoxCollider2D:
