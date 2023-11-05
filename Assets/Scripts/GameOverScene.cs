@@ -24,7 +24,7 @@ public class GameOverScene : MonoBehaviour
 
     public void LoadGame()
     {
-        SceneManager.LoadScene("Battlefield");
+        SceneManager.LoadScene("Battleground");
     }
     
 }

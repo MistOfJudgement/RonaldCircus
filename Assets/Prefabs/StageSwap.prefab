@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &445816186407249853
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6605842106678263965}
+  - component: {fileID: 7704768116034602664}
+  m_Layer: 0
+  m_Name: StageSwap
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6605842106678263965
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 445816186407249853}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.71063644, y: 0.4056874, z: -0.093642205}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7704768116034602664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 445816186407249853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f69fc9205a343945b859278dda577cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arenas:
+  - {fileID: 4100689377570950116, guid: c93018c10ba83aa449bbffd2b51fbe41, type: 3}
+  - {fileID: 5501969725486365716, guid: f26ae23eebb7a74418995f6e94b14ed8, type: 3}
+  - {fileID: 4933265928165303786, guid: 346bff795ec42c1439c371972c0852c6, type: 3}
+  - {fileID: 3802577646429243211, guid: 2872366cb6a6d3241bb44b986de758d4, type: 3}
+  - {fileID: 7540619830088513989, guid: d1d9eca19b3a31f499d057692a685ee0, type: 3}

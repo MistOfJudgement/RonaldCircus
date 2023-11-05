@@ -464,8 +464,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pilum: {fileID: 4647874106267127407}
   shield: {fileID: 4770694610109684442}
-  normalShield: {fileID: 0}
-  deflectedShieldd: {fileID: 0}
+  normalShield: {fileID: 21300000, guid: b95115abcf8c1564885b83aa56dd3fa0, type: 3}
+  deflectedShieldd: {fileID: 21300000, guid: 29980b157a4c6cf4bbc576dcc97f66d2, type: 3}
   speed: 3
   stabRadius: 2
   retreatRadius: 3

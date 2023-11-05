@@ -20,7 +20,7 @@ public class BubbleEvent : OneShotEvent
 
     public override void FireEvent()
     {
-        AnnouncerBox.current.DisplayText("BUBBLE TIME!");
+        AnnouncerBox.current.DisplayText("Lions in hamster balls, what could go wrong?");
         EnemyController[] enemies = FindObjectsOfType<EnemyController>();
         foreach(EnemyController enemy in enemies)
         {
