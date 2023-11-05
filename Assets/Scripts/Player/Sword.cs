@@ -9,6 +9,14 @@ public class Sword : MonoBehaviour, IHitter<EnemyController>
     public bool isSwinging = false;
     public float swingDistance = 2f;
     public bool facingRight = true;
+    public Vector3 initPos;
+    public Vector3 initRot;
+
+    private void Start()
+    {
+        initPos = transform.localPosition;
+        initRot = transform.localEulerAngles;
+    }
     public void DoHit(EnemyController hittable)
     {
         Debug.Log("Sword hit");
@@ -92,6 +100,14 @@ public class Sword : MonoBehaviour, IHitter<EnemyController>
             transform.Rotate(0, 0, 360f * Time.deltaTime * direction);
             transform.Translate(-swingDistance * Time.deltaTime * direction,0, 0);
             yield return null;
+        }
+        transform.localPosition = initPos;
+        transform.localEulerAngles = initRot;
+        if(!facingRight)
+        {
+            transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+            transform.localPosition = new Vector3(-transform.localPosition.x, transform.localPosition.y, transform.localPosition.z);
+
         }
         isSwinging = false;
     }
