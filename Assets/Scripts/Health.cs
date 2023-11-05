@@ -15,9 +15,11 @@ public abstract class Health: MonoBehaviour
         }
         set
         {
+            if(!enabled) return;
             if (m_currentHealth != value)
             {
                 m_currentHealth = value;
+
                 OnHealthChanged?.Invoke();
 
                 if (m_currentHealth <= 0)

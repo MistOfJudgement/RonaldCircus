@@ -473,7 +473,7 @@ MonoBehaviour:
   aimTime: 0.55
   attackTime: 0.08
   retreatTime: 1
-  blockTime: 2
+  blockTime: 0.6
 --- !u!114 &4018799307059819321
 MonoBehaviour:
   m_ObjectHideFlags: 0

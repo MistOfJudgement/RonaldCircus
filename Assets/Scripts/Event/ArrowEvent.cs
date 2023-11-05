@@ -9,6 +9,7 @@ public class ArrowEvent : OneShotEvent
     {
         GameObject prefab = arrowPrefabs[Random.Range(0, arrowPrefabs.Length)];
         Instantiate(prefab);
+        AnnouncerBox.current.DisplayText("Get shot idiot! ;)");
     }
 
     // Start is called before the first frame update
