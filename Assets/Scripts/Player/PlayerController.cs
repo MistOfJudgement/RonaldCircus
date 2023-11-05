@@ -23,6 +23,8 @@ public class PlayerController : MonoBehaviour, IHittable
 
     public Transform gunHolder;
     public Transform gunSprite;
+    public float bulletCooldown = 0.5f;
+    private float bulletTimer = 0f;
 
     private void Awake()
     {
@@ -48,6 +50,10 @@ public class PlayerController : MonoBehaviour, IHittable
     // Update is called once per frame
     void Update()
     {
+        if(bulletTimer > 0)
+        {
+            bulletTimer -= Time.deltaTime;
+        }
         if(invulnerabilityTimer > 0)
         {
             invulnerabilityTimer -= Time.deltaTime;
@@ -63,7 +69,8 @@ public class PlayerController : MonoBehaviour, IHittable
         }
         if (Input.GetButtonDown("Fire1"))
         {
-            FireBullet();
+            if(bulletTimer <= 0)
+                FireBullet();
         }
 
         if(Input.GetButtonDown("Fire2"))
@@ -90,6 +97,7 @@ public class PlayerController : MonoBehaviour, IHittable
     {
         //Quaternion quaternion = Quaternion.EulerRotation(aimStorage.x, aimStorage.y, 0);
         GameObject bullet = Instantiate(bulletPrefab, gunSprite.position, gunHolder.rotation);
+        bulletTimer = bulletCooldown;
     }
     //private void OnTriggerStay2D(Collider2D collision)
     //{
