@@ -614,7 +614,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5284534075993904114, guid: 6feba552f7fbcb041a57229336a09f2e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -731,16 +731,32 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 904043200246542411, guid: 3bf5ac414b65a874cbe054f5a8386e49, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 904043200246542411, guid: 3bf5ac414b65a874cbe054f5a8386e49, type: 3}
       propertyPath: m_TagString
       value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240303943084125846, guid: 3bf5ac414b65a874cbe054f5a8386e49, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2240303943084125846, guid: 3bf5ac414b65a874cbe054f5a8386e49, type: 3}
       propertyPath: m_TagString
       value: Wall
       objectReference: {fileID: 0}
     - target: {fileID: 4802471080571437982, guid: 3bf5ac414b65a874cbe054f5a8386e49, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4802471080571437982, guid: 3bf5ac414b65a874cbe054f5a8386e49, type: 3}
       propertyPath: m_TagString
       value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 7120963906506133136, guid: 3bf5ac414b65a874cbe054f5a8386e49, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7120963906506133136, guid: 3bf5ac414b65a874cbe054f5a8386e49, type: 3}
       propertyPath: m_TagString
