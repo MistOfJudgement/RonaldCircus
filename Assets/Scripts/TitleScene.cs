@@ -51,4 +51,9 @@ public class TitleScene : MonoBehaviour
         
         SceneManager.LoadScene("Battleground");
     }
+
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
 }
