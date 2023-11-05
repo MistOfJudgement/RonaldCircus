@@ -92,7 +92,7 @@ public class LionBehavior : MonoBehaviour, IEnemyBehavior, IHitter<PlayerControl
     }
     public void DoHit(PlayerController player)
     {
-        player.playerHealth.CurrentHealth -= damage;
+        player.TakeDamage(damage);
         player.OnHit();
     }
 }
