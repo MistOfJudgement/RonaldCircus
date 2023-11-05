@@ -20,18 +20,20 @@ public class PlayerController : MonoBehaviour, IHittable
 
     public Transform gunHolder;
     public Transform gunSprite;
+
+    private void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+        } else
+        {
+            Destroy(gameObject);
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {
-        if (instance == null)
-        {
-            instance = this; // this is the current instance of the script
-        }
-        else
-        {
-            //there can only be one
-            Destroy(gameObject);
-        }
 
         playerMovement = GetComponent<PlayerMovement>();
         playerHealth = GetComponent<PlayerHealth>();
@@ -103,17 +105,17 @@ public class PlayerController : MonoBehaviour, IHittable
     {
         invulnerabilityTimer = time;
         isInvulnerable = true;
-        StartCoroutine(InvulnerabilityFlash());
+        //StartCoroutine(InvulnerabilityFlash());
     }
-    IEnumerator InvulnerabilityFlash()
+    IEnumerator DamageFlash()
     {
         while (invulnerabilityTimer > 0)
         {
-            //GetComponent<SpriteRenderer>().enabled = false;
-            //yield return new WaitForSeconds(0.1f);
-            //GetComponent<SpriteRenderer>().enabled = true;
-            GetComponent<SpriteRenderer>().color = Color.red;
-            yield return new WaitForSeconds(0.1f);
+            GetComponent<SpriteRenderer>().enabled = false;
+            yield return new WaitForSeconds(0.05f);
+            GetComponent<SpriteRenderer>().enabled = true;
+            //GetComponent<SpriteRenderer>().color = Color.red;
+            yield return new WaitForSeconds(0.05f);
         }
         GetComponent<SpriteRenderer>().color = Color.white;
         yield return null;
@@ -126,6 +128,7 @@ public class PlayerController : MonoBehaviour, IHittable
         }
         playerHealth.CurrentHealth -= damage;
         GrantInvulerability(InvulnerabilityTime);
+        StartCoroutine(DamageFlash());
     }
     
     public void OnHit()

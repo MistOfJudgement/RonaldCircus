@@ -17,7 +17,7 @@ public class LionBehavior : MonoBehaviour, IEnemyBehavior, IHitter<PlayerControl
     {
         player = GameObject.FindGameObjectWithTag("Player");
         rb = GetComponent<Rigidbody2D>();
-        StartCoroutine(Approach());
+        //StartCoroutine(Approach());
     }
 
     // Update is called once per frame
@@ -94,5 +94,27 @@ public class LionBehavior : MonoBehaviour, IEnemyBehavior, IHitter<PlayerControl
     {
         player.TakeDamage(damage);
         player.OnHit();
+    }
+
+    public void StartBehavior()
+    {
+        if(player == null)
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+        }
+        if(rb == null)
+        {
+            rb = GetComponent<Rigidbody2D>();
+        }
+        enabled = true;
+        StartCoroutine(Approach());
+
+    }
+
+    public void StopBehavior()
+    {
+        currentState = State.Approaching;
+        StopAllCoroutines();
+        enabled = false;
     }
 }

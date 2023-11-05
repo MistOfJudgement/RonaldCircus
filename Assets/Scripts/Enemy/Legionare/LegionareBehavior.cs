@@ -27,7 +27,7 @@ public class LegionareBehavior : MonoBehaviour, IEnemyBehavior
     {
         player = GameObject.FindGameObjectWithTag("Player");
         rb = GetComponent<Rigidbody2D>();
-        StartCoroutine(Approach());
+        //StartCoroutine(Approach());
         pilumStab = pilum.GetComponent<PilumStab>();
         initPilumPos = pilum.transform.localPosition;
         initPilumRot = pilum.transform.localEulerAngles;
@@ -109,5 +109,21 @@ public class LegionareBehavior : MonoBehaviour, IEnemyBehavior
         //pilum.transform.position = Vector2.zero;
         currentState = State.Approaching;
         StartCoroutine(Approach());
+    }
+
+    public void StartBehavior()
+    {
+
+        player = player != null ? player : PlayerController.instance.gameObject;
+        rb = rb != null ? rb : GetComponent<Rigidbody2D>();
+        enabled = true;
+        StartCoroutine(Approach());
+    }
+
+    public void StopBehavior()
+    {
+        currentState = State.Approaching;
+        StopAllCoroutines();
+        this.enabled = false;
     }
 }

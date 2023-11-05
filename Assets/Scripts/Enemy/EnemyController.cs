@@ -13,9 +13,22 @@ public class EnemyController : MonoBehaviour, IHittable
     void Start()
     {
         health = GetComponent<EnemyHealth>();
+        //TODO Jank
         behavior = GetComponent<IEnemyBehavior>();
+        behavior.StartBehavior();
     }
-
+    public void Disable()
+    {
+        health.enabled = false;
+        behavior.StopBehavior();
+        this.enabled = false;
+    }
+    public void Enable()
+    {
+        health.enabled = true;
+        behavior.StartBehavior();
+        this.enabled = true;
+    }
     // Update is called once per frame
     void Update()
     {
