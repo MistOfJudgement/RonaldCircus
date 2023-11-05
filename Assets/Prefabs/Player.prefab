@@ -229,7 +229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d4b932ef18ad88418e0043396b4422d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 8
 --- !u!114 &5305752966181043462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242,6 +242,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cf6055705120024da7f4ca95760ff44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerMovement: {fileID: 0}
+  playerHealth: {fileID: 0}
   InvulnerabilityTime: 1
   isInvulnerable: 0
   bulletPrefab: {fileID: 463386043273540598, guid: 105c14af97102d444b5059ffff0e3901, type: 3}
