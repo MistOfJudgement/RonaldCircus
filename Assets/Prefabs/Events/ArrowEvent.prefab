@@ -47,3 +47,6 @@ MonoBehaviour:
   arrowPrefabs:
   - {fileID: 1355285034021144611, guid: 84e5754980b13224fae882dbe7385954, type: 3}
   - {fileID: 8694996757520465191, guid: 11f8f33dc1eef404e9db208d144420cd, type: 3}
+  - {fileID: 2738630889313208648, guid: ce16336659db5c643a086c0ec715f783, type: 3}
+  - {fileID: 1355285034021144611, guid: cd0486fdc7dbd384aa77510fe23dd7b6, type: 3}
+  - {fileID: 8694996757520465191, guid: 90d29c7fc6674304aabbe8e5cf8efc43, type: 3}

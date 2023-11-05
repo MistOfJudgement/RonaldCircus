@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3110108009740520177}
   - component: {fileID: 1063504308778278440}
   - component: {fileID: 6633076612419767483}
+  - component: {fileID: 82266522780999698}
   m_Layer: 6
   m_Name: Brick Top edge
   m_TagString: Wall
@@ -280,6 +281,7 @@ GameObject:
   - component: {fileID: 5131958351180639751}
   - component: {fileID: 1334819234534187264}
   - component: {fileID: 972742089604202744}
+  - component: {fileID: 7322875930531642556}
   m_Layer: 6
   m_Name: Brick left edge
   m_TagString: Wall
@@ -563,7 +565,7 @@ Transform:
   m_GameObject: {fileID: 4813422948131432838}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.05, y: 7.8784, z: 0}
+  m_LocalPosition: {x: 0, y: 7.8784, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -588,6 +590,7 @@ GameObject:
   - component: {fileID: 1155891625631709892}
   - component: {fileID: 1277519878442890291}
   - component: {fileID: 5778737398023652755}
+  - component: {fileID: 4691812217619556743}
   m_Layer: 6
   m_Name: Brick left edge (2)
   m_TagString: Wall
@@ -857,6 +860,7 @@ GameObject:
   - component: {fileID: 3063293782403202335}
   - component: {fileID: 7173068151528841487}
   - component: {fileID: 266071851693286748}
+  - component: {fileID: 7634306359496989831}
   m_Layer: 6
   m_Name: Brick bottom edge
   m_TagString: Wall
