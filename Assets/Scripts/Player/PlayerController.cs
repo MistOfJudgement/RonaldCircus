@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -10,6 +11,7 @@ public class PlayerController : MonoBehaviour, IHittable
     public PlayerMovement playerMovement;
     public PlayerHealth playerHealth;
 
+    public GameObject sword;
     private Rigidbody2D rb;
 
     public float InvulnerabilityTime = 1f;
@@ -64,6 +66,10 @@ public class PlayerController : MonoBehaviour, IHittable
             FireBullet();
         }
 
+        if(Input.GetButtonDown("Fire2"))
+        {
+            SwordAttack();
+        }
         //Stuff for making the player aim at the cursor
         Vector3 mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
         mousePosition.z = 0; // Ensure the z-component is at the same level as the player (0 in 2D games).
@@ -75,7 +81,11 @@ public class PlayerController : MonoBehaviour, IHittable
         gunHolder.up = aimDirection;   
     }
 
-    
+    private void SwordAttack()
+    {
+        sword.GetComponent<Sword>().Swing();
+    }
+
     private void FireBullet()
     {
         //Quaternion quaternion = Quaternion.EulerRotation(aimStorage.x, aimStorage.y, 0);
