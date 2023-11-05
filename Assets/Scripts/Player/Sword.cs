@@ -54,8 +54,9 @@ public class Sword : MonoBehaviour, IHitter<EnemyController>
             }
         }
     }
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("Sword hit");
         if (other.gameObject.TryGetComponent(out EnemyController enemy))
         {
             DoHit(enemy);
