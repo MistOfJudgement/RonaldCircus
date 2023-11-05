@@ -42,6 +42,7 @@ public class BattleScene : MonoBehaviour
 
     public void ReturnToTitle()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene("Title");
     }
 }
