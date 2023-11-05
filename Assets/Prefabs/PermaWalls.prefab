@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 3110108009740520177}
   - component: {fileID: 1063504308778278440}
   - component: {fileID: 6633076612419767483}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Brick Top edge
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -225,9 +225,9 @@ GameObject:
   - component: {fileID: 5131958351180639751}
   - component: {fileID: 1334819234534187264}
   - component: {fileID: 972742089604202744}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Brick left edge
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -478,9 +478,9 @@ GameObject:
   - component: {fileID: 1155891625631709892}
   - component: {fileID: 1277519878442890291}
   - component: {fileID: 5778737398023652755}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Brick left edge (2)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -692,9 +692,9 @@ GameObject:
   - component: {fileID: 3063293782403202335}
   - component: {fileID: 7173068151528841487}
   - component: {fileID: 266071851693286748}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Brick bottom edge
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

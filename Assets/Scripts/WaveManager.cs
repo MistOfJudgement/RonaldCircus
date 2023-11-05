@@ -6,7 +6,7 @@ public class WaveManager : MonoBehaviour
 {
 
     private Wave currentWave;
-    public List<Wave> waves = new List<Wave>();
+    public Wave[] waves;
     public int currentWaveNumber = 0;
     private HashSet<EnemyController> enemiesLeft;
     // Start is called before the first frame update
@@ -30,19 +30,21 @@ public class WaveManager : MonoBehaviour
             return;
         }
 
-        if(currentWaveNumber >= waves.Count)
+        if(currentWaveNumber >= waves.Length)
         {
             Debug.Log("No waves to start");
+            Debug.Log(waves.Length);
             return;
         }
         Debug.Log("Starting wave " + currentWaveNumber);
-        currentWave = Instantiate(waves[currentWaveNumber++]);
+        currentWave = Instantiate(waves[currentWaveNumber]);
         SpawnWave();
     }
 
     private void SpawnWave()
     {
         Debug.Log("Spawning wave " + currentWaveNumber);
+        currentWave.onWaveEnd.AddListener( () => { Statistics.WavesSurvived++; });
         currentWave.beforeWave.Invoke();
 
         foreach (Enemy enemy in currentWave.enemies)
@@ -51,7 +53,7 @@ public class WaveManager : MonoBehaviour
             EnemyController e = Instantiate(enemy.enemyPrefab, enemy.spawnPosition, Quaternion.identity).GetComponent<EnemyController>();
             enemiesLeft.Add(e);
             e.health.OnDeath += ( () => OnEnemyDeath(e));
-            e.health.OnDeath += ( () => Log("Enemy died: rip " + e.name));
+            e.health.OnDeath += ( () => Log("En3my died: rip " + e.name));
         }
         Debug.Log("Enemies left: " + enemiesLeft.Count);
     }
@@ -71,11 +73,17 @@ public class WaveManager : MonoBehaviour
     {
         if(currentWave != null)
         {
-            currentWave.onWaveEnd.Invoke();
             currentWaveNumber++;
+            currentWave.onWaveEnd.Invoke();
+            currentWave = null;
+            StartCoroutine(PauseBeforeWave());
         }
     }
-
+    IEnumerator PauseBeforeWave()
+    {
+        yield return new WaitForSeconds(3);
+        StartWave();
+    }
     public void Log(string message)
     {
         Debug.Log(message);

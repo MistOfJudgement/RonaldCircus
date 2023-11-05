@@ -11,10 +11,18 @@ public class PlayerHealthBarUI : MonoBehaviour
     public Sprite fullHeart;
     public Sprite halfHeart;
     public GameObject[] myyyyyy;
-
+    private void Start()
+    {
+        playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
+    }
     private void OnEnable()
     {
+        if (playerHealth == null)
+        {
+            playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
+        }
         playerHealth.OnHealthChanged += UpdateHealthText;
+        UpdateHealthText();
 
     }
 

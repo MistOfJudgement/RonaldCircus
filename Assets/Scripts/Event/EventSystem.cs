@@ -43,6 +43,7 @@ public class EventSystem : MonoBehaviour
             }
             m_lastEvent = e;
             e.FireEvent();
+            Statistics.EventsLived++;
         }
 
     }

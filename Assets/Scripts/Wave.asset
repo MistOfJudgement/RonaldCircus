@@ -15,33 +15,11 @@ MonoBehaviour:
   enemies:
   - enemyPrefab: {fileID: 5284534075993904114, guid: 6feba552f7fbcb041a57229336a09f2e, type: 3}
     spawnPosition: {x: 0, y: 0}
+  - enemyPrefab: {fileID: 5224940732893125653, guid: 83665f949fd06f348892b094cc7eb585, type: 3}
+    spawnPosition: {x: -2.44, y: 3.33}
   beforeWave:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 726542583265662619, guid: 9cd42729980509e4a86f6a54d5489641, type: 3}
-        m_TargetAssemblyTypeName: Health, Assembly-CSharp
-        m_MethodName: set_CurrentHealth
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 50
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 5284534075993904114, guid: 6feba552f7fbcb041a57229336a09f2e, type: 3}
-        m_TargetAssemblyTypeName: UnityEngine.Object, UnityEngine
-        m_MethodName: set_name
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 50
-          m_FloatArgument: 0
-          m_StringArgument: buh
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 6022131448905079702, guid: 94113a0efc2d4904bb58950398f3b7cc, type: 3}
         m_TargetAssemblyTypeName: WaveManager, Assembly-CSharp
         m_MethodName: Log
@@ -71,13 +49,13 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 6022131448905079702, guid: 94113a0efc2d4904bb58950398f3b7cc, type: 3}
         m_TargetAssemblyTypeName: WaveManager, Assembly-CSharp
-        m_MethodName: StartWave
-        m_Mode: 1
+        m_MethodName: Log
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Wave endededed
+          m_StringArgument: Wave endededed1
           m_BoolArgument: 0
         m_CallState: 2

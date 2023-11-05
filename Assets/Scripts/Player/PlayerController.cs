@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour, IHittable
 {
@@ -39,6 +40,7 @@ public class PlayerController : MonoBehaviour, IHittable
         playerHealth = GetComponent<PlayerHealth>();
         rb = GetComponent<Rigidbody2D>();
         mainCamera = Camera.main;
+        playerHealth.OnDeath += () => { SceneManager.LoadScene("Game Over"); };
     }
 
     // Update is called once per frame

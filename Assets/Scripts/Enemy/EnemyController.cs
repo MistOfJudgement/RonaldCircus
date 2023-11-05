@@ -18,6 +18,7 @@ public class EnemyController : MonoBehaviour, IHittable
         behavior = GetComponent<IEnemyBehavior>();
         behavior.StartBehavior();
         rb = GetComponent<Rigidbody2D>();
+        health.OnDeath += () => { Statistics.EnemiesKilled++; };
     }
     public void Disable()
     {
