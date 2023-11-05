@@ -315,7 +315,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d4b932ef18ad88418e0043396b4422d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 8
+  maxHealth: 16
 --- !u!114 &5305752966181043462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -336,6 +336,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 463386043273540598, guid: 105c14af97102d444b5059ffff0e3901, type: 3}
   gunHolder: {fileID: 676591698989560282}
   gunSprite: {fileID: 3694689218084453290}
+  bulletCooldown: 0.5
 --- !u!70 &5349403276058071948
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
