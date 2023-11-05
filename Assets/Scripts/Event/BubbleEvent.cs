@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BubbleEvent : MonoBehaviour
+public class BubbleEvent : OneShotEvent
 {
 
     public GameObject bubble;
@@ -18,8 +18,9 @@ public class BubbleEvent : MonoBehaviour
         
     }
 
-    public void FireEvent()
+    public override void FireEvent()
     {
+        AnnouncerBox.current.DisplayText("BUBBLE TIME!");
         EnemyController[] enemies = FindObjectsOfType<EnemyController>();
         foreach(EnemyController enemy in enemies)
         {

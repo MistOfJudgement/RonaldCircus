@@ -10,6 +10,9 @@ public class LegionareBehavior : MonoBehaviour, IEnemyBehavior
     public GameObject pilum;
     private PilumStab pilumStab;
     public  GameObject shield;
+
+    public Sprite normalShield;
+    public Sprite deflectedShieldd;
     private enum State { Approaching, Aim, Attack, Retreat}
     private State currentState = State.Approaching;
     public float speed = 3;
@@ -19,7 +22,8 @@ public class LegionareBehavior : MonoBehaviour, IEnemyBehavior
     public float aimTime = 1f;
     public float attackTime = 1f;
     public float retreatTime = 1f;
-
+    private bool m_isBlocking = true;
+    public float blockTime = 2f;
     private Vector3 initPilumPos;
     private Vector3 initPilumRot;
     // Start is called before the first frame update
@@ -125,5 +129,32 @@ public class LegionareBehavior : MonoBehaviour, IEnemyBehavior
         currentState = State.Approaching;
         StopAllCoroutines();
         this.enabled = false;
+    }
+
+    public void TakeDamage(int damage)
+    {
+        if (m_isBlocking)
+        {
+            StartCoroutine(DoBlock());
+        }
+        else
+        {
+            GetComponent<EnemyHealth>().CurrentHealth -= (damage);
+        }
+    }
+
+    IEnumerator DoBlock()
+    {
+        m_isBlocking = false;
+        SpriteRenderer sprite = shield.GetComponent<SpriteRenderer>();
+        sprite.sprite = deflectedShieldd;
+        sprite.transform.localPosition = new Vector3(0.4f, 0, 0);
+        sprite.sortingOrder = 1;
+        yield return new WaitForSeconds(blockTime);
+        sprite.sprite = normalShield;
+        sprite.transform.localPosition = new Vector3(0, 0, 0);
+        sprite.sortingOrder = 10;
+        m_isBlocking = true;
+
     }
 }

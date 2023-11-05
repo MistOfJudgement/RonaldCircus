@@ -19,6 +19,7 @@ public abstract class Health: MonoBehaviour
             {
                 m_currentHealth = value;
                 OnHealthChanged?.Invoke();
+
                 if (m_currentHealth <= 0)
                 {
                     OnDeath?.Invoke();

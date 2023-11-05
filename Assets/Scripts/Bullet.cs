@@ -30,7 +30,7 @@ public class Bullet : MonoBehaviour, IHitter<EnemyController>
     public void DoHit(EnemyController hittable)
     {
 
-        hittable.health.CurrentHealth -= (int)(damage);
+        hittable.behavior.TakeDamage((int)damage);
         hittable.OnHit();
         Destroy(gameObject);
 
