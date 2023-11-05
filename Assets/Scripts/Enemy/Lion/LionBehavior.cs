@@ -117,4 +117,9 @@ public class LionBehavior : MonoBehaviour, IEnemyBehavior, IHitter<PlayerControl
         StopAllCoroutines();
         enabled = false;
     }
+
+    public void TakeDamage(int damage)
+    {
+        GetComponent<EnemyHealth>().CurrentHealth -= (damage);
+    }
 }

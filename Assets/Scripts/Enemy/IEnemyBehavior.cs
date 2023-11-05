@@ -4,6 +4,7 @@ using UnityEngine;
 
 public interface IEnemyBehavior
 {
+    public void TakeDamage(int damage);
     public void StartBehavior();
     public void StopBehavior();
 }

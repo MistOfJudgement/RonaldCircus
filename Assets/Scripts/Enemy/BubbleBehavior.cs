@@ -62,4 +62,9 @@ public class BubbleBehavior : MonoBehaviour, IEnemyBehavior, IHitter<PlayerContr
         hittable.TakeDamage(damage);
         hittable.OnHit();
     }
+
+    public void TakeDamage(int damage)
+    {
+        GetComponent<EnemyHealth>().CurrentHealth -= (damage);
+    }
 }
